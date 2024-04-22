@@ -1,6 +1,13 @@
 # Image-to-Image Retrieval System Using FAISS
+Image retrieval systems are becoming popular daily as the demand for image search increases. Since images can be represented as feature vectors, they can be easily stored in the vector database for faster query retrieval. This paper focuses on extracting image features from the SBU Captions dataset using a pre-trained SigLIP (Sigmoid Loss for Language Image Pre-Training) model and evaluating the FAISS (Facebook AI Similarity Search) library for retrieving k similar images for a given input image. The final results and performance of the image retrieval system are assessed using different metrics, including Recall at K and system latency. The system's latency is measured using brute force Euclidean distance and various FAISS indexes.
+
+## Pre-Requisites:
+1. Download the SBU Captions Dataset from http://www.cs.rice.edu/~vo9/sbucaptions/sbu_images.tar  
+2. Install Python3 and required libraries as per the code file
 
 ## Code Structure:
+
+**job.slurm** -> This is the job that we run on Rice University's NOTS server. It contains the configurations of node on which the ImageFeatureExtractor.py will get executed. We execute a job in `nots.rice.edu` server using `sbatch job.slurm submit` command after doing `ssh` into the instance. 
 
 **ImageFeaturesExtractor.py** -> Use this file to extract the vectors of fixed dimensions from images using the desired SigLIP model and save it to csv file for later usage. Since there were 1 million images, so we splitted the extraction of image features into mulitple csv files, each containing 100K image vectors or rows in csv.  
 
