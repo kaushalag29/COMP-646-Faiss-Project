@@ -11,6 +11,10 @@ Image retrieval systems are becoming popular daily as the demand for image searc
 
 **ImageFeaturesExtractor.py** -> Use this file to extract the vectors of fixed dimensions from images using the desired SigLIP model and save it to csv file for later usage. Since there were 1 million images, so we splitted the extraction of image features into mulitple csv files, each containing 100K image vectors or rows in csv.  
 
-**IndexCreation.ipynb** ->  For each extracted csv file, we can create the Faiss Index using this notebook. The advantage of creating index file is that it compresses the csv file drastically and can be loaded in the future easily (less time consuming) for reconstruction of image vectors.  
+**IndexCreation.ipynb** ->  For each extracted csv file, we can create the Faiss Index using this notebook. The advantage of creating index file is that it compresses the csv file drastically and can be loaded in the future easily (less time consuming) for reconstruction of image vectors.
+
+**Merge100k.ipynb** -> Once the 100k Indexes are created using the IndexCreation.ipynb, we need to merge the indexes in a single index file. Using this code, we can merge the indexes together into a single Index consisting of 1 Million vectors.  
 
 **LatencyMesaurement.ipynb** -> This file is used to measure the time taken to retrieve k similar images from FAISS index consisting of 1M index. First we read the merged index files and reconstruct the image vectors and then measure the time taken to create the index and search within the index. We measure the latency for FAISS's IndexFlatL2 and IndexIVFFlat.
+
+**Recall.ipynb** -> This notebook is used to first generate a set of Random Images from the SBU captions dataset. This code takes both IndexFlatL2 and IndexIVFFlat FAISS indexes of 1 Million vectors as input and calculates Recall @ K metric for K = 1,10,20,30..., 100 for each of the indexes.
