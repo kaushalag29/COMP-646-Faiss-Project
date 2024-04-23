@@ -4,6 +4,9 @@ Image retrieval systems are becoming popular daily as the demand for image searc
 ## Pre-Requisites:
 1. Download the SBU Captions Dataset from http://www.cs.rice.edu/~vo9/sbucaptions/sbu_images.tar  
 2. Install Python3 and required libraries as per the code file
+3. Download the 1 Million FAISS IndexFlatL2 file from https://drive.google.com/file/d/1i77SSTKCtDipQaCvr08yCEWgLAJUjYPU/view?usp=share_link
+4. Download the 1 Million FAISS IndexIVFFlat file from https://drive.google.com/file/d/19Ob35sH_iNT8Zqu66mwA44JREj2t1K-4/view?usp=share_link
+
 
 ## Code Structure:
 
